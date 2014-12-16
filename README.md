@@ -12,9 +12,9 @@ TBD
     * `git clone https://github.com/carlpulley/spores.git`
     * `cd spores`
     * `git checkout research`
-    * `sbt ";project spores-core ;compile"`
-    * `sbt ";project spores-core ;test"`
-    * `sbt ";project spores-core ;publishLocal"`
+    * `sbt compile`
+    * `sbt ";project spores-core ;test"` (**TODO:** get tests compiling for `spores-pickling`)
+    * `sbt publishLocal`
 * Ensure that Apache Spark is installed:
     * `brew install apache-spark`
 * Build Sparky and his libraries:
