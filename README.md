@@ -25,7 +25,7 @@ TBD
 
 Simple PoC demonstration to validate that our setup is sane:
 * in terminal 1 run:
-    * `nc -lp 9999`
+    * `nc -lk 9999`
 * in terminal 2 run:
     * ```spark-submit --class cakesolutions.example1.Main --master local[4] --jars `ls -m ./sparky/target/universal/stage/lib/*.jar | tr -d " \n"` ./sparky/target/universal/stage/lib/cakesolutions.sparky-0.1.0-SNAPSHOT.jar localhost 9999```
 
@@ -36,7 +36,7 @@ in terminal 2.
 
 Simple PoC demonstration to validate that Spark workflows can be defined using Spores (think quasiquoting):
 * in terminal 1 run:
-    * `nc -lp 9999`
+    * `nc -lk 9999`
 * in terminal 2 run:
     * ```spark-submit --class cakesolutions.example2.Main --master local[4] --jars `ls -m ./sparky/target/universal/stage/lib/*.jar | tr -d " \n"` ./sparky/target/universal/stage/lib/cakesolutions.sparky-0.1.0-SNAPSHOT.jar localhost 9999```
 
