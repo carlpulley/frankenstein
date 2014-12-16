@@ -2,6 +2,7 @@ package cakesolutions.example2
 
 import org.apache.spark.SparkConf
 import org.apache.spark.storage.StorageLevel
+import org.apache.spark.streaming.dstream.ReceiverInputDStream
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.streaming.StreamingContext._
 import scala.spores._
@@ -15,11 +16,9 @@ object SparkWorkflow {
       // Note that no duplication in storage level only for running locally.
       // Replication necessary in distributed scenario for fault tolerance.
       val lines = ssc.socketTextStream(capture(host), capture(port), StorageLevel.MEMORY_AND_DISK_SER)
-      val words = lines.flatMap(_.split(" "))
-      val wordCounts = words.map(x => (x.trim.toLowerCase, 1)).reduceByKey(_ + _)
-      // FIXME: why isn't the following OK?
-      // val words = lines.flatMap(_.split(" ")).map(_.trim.toLowerCase)
-      // val wordCounts = words.map(x => (x, 1)).reduceByKey(_ + _)
+      // FIXME: why does the following require a type cast?
+      val words = lines.flatMap(_.split(" ")).asInstanceOf[ReceiverInputDStream[String]].map(_.trim.toLowerCase)
+      val wordCounts = words.map(x => (x, 1)).reduceByKey(_ + _)
       wordCounts.print()
     }
   }
