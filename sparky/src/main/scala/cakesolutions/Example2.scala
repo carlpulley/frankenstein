@@ -28,7 +28,7 @@ object SparkWorkflow {
 /**
  * Counts words in UTF8 encoded, '\n' delimited text received from the network every second.
  *
- * Usage: Example2 <hostname> <port>
+ * Usage: example2.Main <hostname> <port>
  * <hostname> and <port> describe the TCP server that Spark Streaming would connect to receive data.
  *
  * To run this on your local machine, you need to first run a Netcat server:
@@ -41,7 +41,7 @@ object Main {
   def main(args: Array[String]) {
     if (args.length < 2) {
       System.err.println(
-        "Usage: Example1 <hostname> <port>")
+        "Usage: example2.Main <hostname> <port>")
       System.exit(1)
     }
 

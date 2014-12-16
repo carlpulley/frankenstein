@@ -36,6 +36,7 @@ object Project {
       // Miscellaneous
       commons,
       logback,
+      pickling,
       typesafe,
       // Testing
       scalatest     % "test",
