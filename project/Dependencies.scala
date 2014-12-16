@@ -12,6 +12,11 @@ object Dependencies {
     val sql       = "org.apache.spark"  %% "spark-sql"       % version
   }
 
+  object spores {
+    val core     = "org.scala-lang.modules" %% "spores-core"    % "0.1.0-SNAPSHOT"
+    val pickling = "org.scala-lang"         %% "scala-pickling" % "0.9.1"
+  }
+
   val commons       = "org.apache.commons" %  "commons-lang3"   % "3.3.2"
   val logback       = "ch.qos.logback"     %  "logback-classic" % "1.1.2"
   val scalacheck    = "org.scalacheck"     %% "scalacheck"      % "1.11.6"

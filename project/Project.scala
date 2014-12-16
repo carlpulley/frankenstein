@@ -30,6 +30,9 @@ object Project {
       spark.core,
       spark.streaming,
       spark.sql,
+      // Spores
+      spores.core,
+      spores.pickling,
       // Miscellaneous
       commons,
       logback,
