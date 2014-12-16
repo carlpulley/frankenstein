@@ -1,0 +1,3 @@
+Project.settings
+
+name := "Sparky"
