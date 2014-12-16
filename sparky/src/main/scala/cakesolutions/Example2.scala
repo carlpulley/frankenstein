@@ -2,7 +2,7 @@ package cakesolutions.example2
 
 import org.apache.spark.SparkConf
 import org.apache.spark.storage.StorageLevel
-import org.apache.spark.streaming.dstream.ReceiverInputDStream
+import org.apache.spark.streaming.dstream.DStream
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.streaming.StreamingContext._
 import scala.spores._
@@ -16,8 +16,8 @@ object SparkWorkflow {
       // Note that no duplication in storage level only for running locally.
       // Replication necessary in distributed scenario for fault tolerance.
       val lines = ssc.socketTextStream(capture(host), capture(port), StorageLevel.MEMORY_AND_DISK_SER)
-      // FIXME: why does the following require a type cast?
-      val words = lines.flatMap(_.split(" ")).asInstanceOf[ReceiverInputDStream[String]].map(_.trim.toLowerCase)
+      // FIXME: FlatMappedDStream (return type of lines.flatMap(..)) is package private, and so presumably the spore macros can not access the class instance(?) - hence an explicit DStream type cast?
+      val words = lines.flatMap(_.split(" ")).asInstanceOf[DStream[String]].map(_.trim.toLowerCase)
       val wordCounts = words.map(x => (x, 1)).reduceByKey(_ + _)
       wordCounts.print()
     }
