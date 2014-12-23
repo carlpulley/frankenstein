@@ -2,10 +2,10 @@ import sbt._
 
 object Dependencies {
 
-  val scala = "2.10.4"
+  val scala = "2.11.4"
 
   object spark {
-    val version = "1.1.1"
+    val version = "1.2.0"
 
     val core      = "org.apache.spark"  %% "spark-core"      % version
     val streaming = "org.apache.spark"  %% "spark-streaming" % version
@@ -19,7 +19,7 @@ object Dependencies {
 
   val commons       = "org.apache.commons" %  "commons-lang3"   % "3.3.2"
   val logback       = "ch.qos.logback"     %  "logback-classic" % "1.1.2"
-  val pickling      = "org.scala-lang"     %% "scala-pickling"  % "0.9.1"
+  val pickling      = "org.scala-lang"     %% "scala-pickling"  % "0.9.2-SNAPSHOT"
   val scalacheck    = "org.scalacheck"     %% "scalacheck"      % "1.11.6"
   val scalacompiler = "org.scala-lang"     %  "scala-compiler"  % scala
   val scalatest     = "org.scalatest"      %% "scalatest"       % "2.2.1"

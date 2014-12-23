@@ -42,7 +42,8 @@ object Project {
       scalatest     % "test",
       scalacheck    % "test",
       specs2        % "test"
-    )
+    ),
+    resolvers += Resolver.sonatypeRepo("snapshots")
   )
 
 }
